@@ -27,10 +27,23 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<ul class="dropdown-menu pull-right" role="menu">
+					<!-- frames dropdown: give a unique id so scripts can target it -->
+					<ul id="frames-menu" class="dropdown-menu pull-right" role="menu">
 					</ul>
 				</div>
-				<a class="navbar-brand" href="/">
+
+				<!-- language selector -->
+				<ul class="nav navbar-nav navbar-right">
+				  <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="language-toggle">Language <b class="caret"></b></a>
+					<ul class="dropdown-menu" id="lang-menu">
+					  <li><a href="#" data-lang="en">English</a></li>
+					  <li><a href="#" data-lang="zh">中文</a></li>
+					</ul>
+				  </li>
+				</ul>
+
+				<a class="navbar-brand" href="/" id="site-title">
 					The Secret Lives of Data
 				</a>
 			</div>

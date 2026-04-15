@@ -1,4 +1,3 @@
-
 "use strict";
 /*jslint browser: true, nomen: true*/
 /*global define*/
@@ -20,8 +19,8 @@ define([], function () {
         })
 
         .after(1000, function () {
-            frame.model().title = '<h2 style="visibility:visible">So What is Distributed Consensus?</h2>'
-                        + '<h3 style="visibility:hidden;">Let\'s start with an example...</h3>'
+            frame.model().title = '<h2 style="visibility:visible">' + (typeof t === 'function' ? t('intro.title') : "So What is Distributed Consensus?") + '</h2>'
+                        + '<h3 style="visibility:hidden;">' + (typeof t === 'function' ? t('intro.subtitle') : "Let's start with an example...") + '</h3>'
                         + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })
@@ -39,7 +38,7 @@ define([], function () {
 
         .after(800, function () {
             frame.snapshot();
-            frame.model().subtitle = '<h2>Let\'s say we have a single node system</h2>'
+            frame.model().subtitle = '<h2>' + (typeof t === 'function' ? t('intro.single_node') : "Let's say we have a single node system") + '</h2>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -56,7 +55,7 @@ define([], function () {
             layout.invalidate();
         })
         .after(600, function () {
-            frame.model().subtitle = '<h3>For this example, you can think of our <span style="color:steelblue">node</span> as a database server that stores a single value.</h3>'
+            frame.model().subtitle = '<h3>' + (typeof t === 'function' ? t('intro.node_description') : "For this example, you can think of our <span style=\"color:steelblue\">node</span> as a database server that stores a single value.") + '</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -75,7 +74,7 @@ define([], function () {
             layout.invalidate();
         })
         .after(1000, function () {
-            frame.model().subtitle = '<h3>We also have a <span style="color:green">client</span> that can send a value to the server.</h3>'
+            frame.model().subtitle = '<h3>' + (typeof t === 'function' ? t('intro.client_description') : "We also have a <span style=\"color:green\">client</span> that can send a value to the server.") + '</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -101,7 +100,7 @@ define([], function () {
         })
         .after(100, wait).indefinite()
         .after(100, function () {
-            frame.model().subtitle = '<h3>Coming to agreement, or <em>consensus</em>, on that value is easy with one node.</h3>'
+            frame.model().subtitle = '<h3>' + (typeof t === 'function' ? t('intro.consensus_easy') : "Coming to agreement, or <em>consensus</em>, on that value is easy with one node.") + '</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -110,7 +109,7 @@ define([], function () {
 
         .after(100, function () {
             frame.snapshot();
-            frame.model().subtitle = '<h3>But how do we come to consensus if we have multiple nodes?</h3>'
+            frame.model().subtitle = '<h3>' + (typeof t === 'function' ? t('intro.consensus_question') : "But how do we come to consensus if we have multiple nodes?") + '</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -127,7 +126,7 @@ define([], function () {
 
         .after(100, function () {
             frame.snapshot();
-            frame.model().subtitle = '<h3>That\'s the problem of <em>distributed consensus</em>.</h3>'
+            frame.model().subtitle = '<h3>' + (typeof t === 'function' ? t('intro.distributed_problem') : "That\'s the problem of <em>distributed consensus</em>.") + '</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })

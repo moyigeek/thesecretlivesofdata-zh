@@ -1,4 +1,3 @@
-
 "use strict";
 /*jslint browser: true, nomen: true*/
 /*global define*/
@@ -22,14 +21,14 @@ define(["../model/log_entry"], function (LogEntry) {
         })
 
         .after(800, function () {
-            model().subtitle = '<h2><em>Raft</em> is a protocol for implementing distributed consensus.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.intro') : '<em>Raft</em> is a protocol for implementing distributed consensus.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>Let\'s look at a high level overview of how it works.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.high_level') : "Let's look at a high level overview of how it works.") + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -39,7 +38,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             model().zoom([node("b")]);
-            model().subtitle = '<h2>A node can be in 1 of 3 states:</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.states') : 'A node can be in 1 of 3 states:') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -47,7 +46,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             node("b")._state = "follower";
-            model().subtitle = '<h2>The <em>Follower</em> state,</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.follower') : 'The <em>Follower</em> state,') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -55,7 +54,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             node("b")._state = "candidate";
-            model().subtitle = '<h2>the <em>Candidate</em> state,</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.candidate') : 'the <em>Candidate</em> state,') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -63,7 +62,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             node("b")._state = "leader";
-            model().subtitle = '<h2>or the <em>Leader</em> state.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.leader') : 'or the <em>Leader</em> state.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -73,14 +72,14 @@ define(["../model/log_entry"], function (LogEntry) {
             frame.snapshot();
             model().zoom(null);
             node("b")._state = "follower";
-            model().subtitle = '<h2>All our nodes start in the follower state.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.starting') : 'All our nodes start in the follower state.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>If followers don\'t hear from a leader then they can become a candidate.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.timeout') : "If followers don't hear from a leader then they can become a candidate.") + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -91,7 +90,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The candidate then requests votes from other nodes.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.request_votes') : 'The candidate then requests votes from other nodes.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -103,7 +102,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>Nodes will reply with their vote.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.reply_votes') : 'Nodes will reply with their vote.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -121,14 +120,14 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The candidate becomes the leader if it gets votes from a majority of nodes.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.becomes_leader') : 'The candidate becomes the leader if it gets votes from a majority of nodes.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>This process is called <em>Leader Election</em>.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.this_process') : 'This process is called <em>Leader Election</em>.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -137,7 +136,7 @@ define(["../model/log_entry"], function (LogEntry) {
 
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>All changes to the system now go through the leader.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.changes_through_leader') : 'All changes to the system now go through the leader.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -162,14 +161,14 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>Each change is added as an entry in the node\'s log.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.log_entry') : "Each change is added as an entry in the node's log.") + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>This log entry is currently uncommitted so it won\'t update the node\'s value.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.uncommitted') : "This log entry is currently uncommitted so it won't update the node's value.") + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -184,7 +183,7 @@ define(["../model/log_entry"], function (LogEntry) {
                 node("c")._log.push(new LogEntry(model(), 1, 1, "SET 5"));
                 layout.invalidate();
             });
-            model().subtitle = '<h2>To commit the entry the node first replicates it to the follower nodes...</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.replicate_then_commit') : 'To commit the entry the node first replicates it to the follower nodes...') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -197,7 +196,7 @@ define(["../model/log_entry"], function (LogEntry) {
                 layout.invalidate();
             });
             model().send(node("c"), node("a"), {type:"AEREQ"});
-            model().subtitle = '<h2>then the leader waits until a majority of nodes have written the entry.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.wait_majority') : 'then the leader waits until a majority of nodes have written the entry.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -209,7 +208,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The entry is now committed on the leader node and the node state is "5".</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.committed') : 'The entry is now committed on the leader node and the node state is "5".') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -226,14 +225,14 @@ define(["../model/log_entry"], function (LogEntry) {
                 node("c")._commitIndex = 1;
                 layout.invalidate();
             });
-            model().subtitle = '<h2>The leader then notifies the followers that the entry is committed.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.notify_followers') : 'The leader then notifies the followers that the entry is committed.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The cluster has now come to consensus about the system state.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.consensus_now') : 'The cluster has now come to consensus about the system state.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -242,7 +241,7 @@ define(["../model/log_entry"], function (LogEntry) {
 
         .after(300, function () {
             frame.snapshot();
-            model().subtitle = '<h2>This process is called <em>Log Replication</em>.</h2>'
+            model().subtitle = '<h2>' + (typeof t === 'function' ? t('overview.log_replication') : 'This process is called <em>Log Replication</em>.') + '</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
